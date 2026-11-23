@@ -1,0 +1,1 @@
+Les données quotidiennes au format JSON (AAAA-MM-JJ.json), destinées à une IA, sont déposées ici automatiquement par n8n.

@@ -1,0 +1,1 @@
+Les rapports quotidiens (AAAA-MM-JJ.md) sont déposés ici automatiquement par n8n.

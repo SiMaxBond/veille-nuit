@@ -1,0 +1,14 @@
+# Site du rapport quotidien, publié par GitHub Pages (Jekyll)
+title: Veille mondiale
+description: Rapport quotidien sur la situation politique, économique et touristique dans le monde.
+lang: fr
+theme: minima
+markdown: kramdown
+
+# Seule la page Archives apparaît dans le menu (pas chaque rapport)
+header_pages:
+  - archives.md
+
+# Si le site est https://votre-identifiant.github.io/nom-du-depot/, mettez :
+# baseurl: "/nom-du-depot"
+baseurl: ""
