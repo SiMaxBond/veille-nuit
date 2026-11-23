@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f6f5f1" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111110" media="(prefers-color-scheme: dark)">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Veille">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="description" content="Veille mondiale quotidienne : agitation, secteurs menacés, tourisme.">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icone.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icone-180.png">
+<title>Veille mondiale</title>
+<style>
+:root {
+  color-scheme: light;
+  --bg: #f6f5f1; --surface: #fcfcfb; --surface2: #efeee9; --line: #e2e0d8;
+  --ink: #0b0b0b; --ink2: #52514e; --ink3: #75736b;
+  --accent: #2a78d6; --accent-ink: #1c5cab; --land: #e4e2db; --land-line: #fcfcfb;
+  /* Gravité 1 → 5 : une seule teinte, validée (ordinale) sur la surface claire */
+  --g1: #e9935a; --g2: #dc7038; --g3: #c75424; --g4: #a23d16; --g5: #76250b;
+  --g1t: #0b0b0b; --g2t: #0b0b0b; --g3t: #fff; --g4t: #fff; --g5t: #fff;
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --nav-h: 62px;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --bg: #111110; --surface: #1a1a19; --surface2: #242422; --line: #2f2f2c;
+    --ink: #f0efec; --ink2: #c3c2b7; --ink3: #9a998f;
+    --accent: #3987e5; --accent-ink: #86b6ef; --land: #2c2c29; --land-line: #111110;
+    /* Sur fond sombre, la gravité s'éclaircit : 5 reste la plus visible */
+    --g1: #9e3d17; --g2: #c2511f; --g3: #df6c33; --g4: #ef8d56; --g5: #f6b487;
+    --g1t: #fff; --g2t: #fff; --g3t: #0b0b0b; --g4t: #0b0b0b; --g5t: #0b0b0b;
+  }
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 16px; -webkit-text-size-adjust: 100%; }
+body { padding-bottom: calc(var(--nav-h) + env(safe-area-inset-bottom)); min-height: 100vh; }
+button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+a { color: var(--accent-ink); }
+[hidden] { display: none !important; }
+
+/* En-tête */
+.haut { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--bg) 92%, transparent);
+  backdrop-filter: saturate(1.4) blur(12px); -webkit-backdrop-filter: saturate(1.4) blur(12px);
+  border-bottom: 1px solid var(--line); padding: calc(env(safe-area-inset-top) + 10px) 16px 10px; }
+.marque { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink3); font-weight: 600; display: flex; justify-content: space-between; }
+.horsligne { color: var(--g3); }
+.jour { display: flex; align-items: center; gap: 6px; margin-top: 2px; }
+.jour h1 { flex: 1; margin: 0; font-family: var(--serif); font-weight: 600; font-size: 24px; line-height: 1.15; text-align: center; }
+.fleche { width: 40px; height: 40px; border-radius: 20px; display: grid; place-items: center; color: var(--ink2); }
+.fleche:disabled { opacity: .25; cursor: default; }
+.fleche:not(:disabled):active { background: var(--surface2); }
+.stats { text-align: center; font-size: 13px; color: var(--ink2); margin-top: 2px; }
+
+main { max-width: 720px; margin: 0 auto; padding: 14px 14px 24px; }
+h2 { font-family: var(--serif); font-size: 19px; font-weight: 600; margin: 22px 2px 10px; }
+.carte-bloc { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 14px 16px; }
+
+/* En bref */
+.bref { border-left: 4px solid var(--accent); }
+.bref h2 { margin: 0 0 6px; font-size: 17px; }
+.bref ul { margin: 0; padding-left: 18px; }
+.bref li { margin: 6px 0; line-height: 1.45; font-size: 15px; }
+.alertes { display: flex; gap: 8px; overflow-x: auto; padding: 12px 2px 2px; scrollbar-width: none; }
+.alertes::-webkit-scrollbar, .puces::-webkit-scrollbar { display: none; }
+.alerte { flex: none; display: flex; align-items: center; gap: 6px; background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 5px 10px 5px 5px; font-size: 14px; }
+
+/* Filtres */
+.filtres { position: sticky; top: var(--haut-h, 104px); z-index: 5; background: var(--bg); margin: 0 -14px; padding: 10px 14px 6px; }
+.puces { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; padding-bottom: 6px; }
+.puce { flex: none; border: 1px solid var(--line); background: var(--surface); border-radius: 999px; padding: 7px 12px; font-size: 14px; color: var(--ink2); white-space: nowrap; }
+.puce[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.puce small { opacity: .7; margin-left: 3px; }
+.recherche { width: 100%; border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 12px; padding: 10px 12px; font: inherit; font-size: 16px; }
+.compte { font-size: 13px; color: var(--ink3); margin: 8px 2px; }
+.region-texte { font-family: var(--serif); font-size: 16px; line-height: 1.55; color: var(--ink); margin: 6px 0 12px; }
+
+/* Événements */
+.ev { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; margin-bottom: 10px; overflow: hidden; }
+.ev-tete { display: flex; gap: 12px; width: 100%; text-align: left; padding: 12px 14px; align-items: flex-start; }
+.g { flex: none; width: 34px; height: 34px; border-radius: 9px; display: grid; place-items: center; font-weight: 700; font-size: 15px; font-variant-numeric: tabular-nums; }
+.g.petit { width: 24px; height: 24px; border-radius: 6px; font-size: 12px; }
+.g1 { background: var(--g1); color: var(--g1t); } .g2 { background: var(--g2); color: var(--g2t); }
+.g3 { background: var(--g3); color: var(--g3t); } .g4 { background: var(--g4); color: var(--g4t); }
+.g5 { background: var(--g5); color: var(--g5t); } .g0 { background: var(--surface2); color: var(--ink3); }
+.ev-corps { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.ev-lieu { font-size: 13px; color: var(--ink2); font-weight: 600; }
+.ev-titre { font-family: var(--serif); font-size: 17px; line-height: 1.3; font-weight: 600; }
+.ev-meta { display: flex; flex-wrap: wrap; gap: 6px 10px; font-size: 12.5px; color: var(--ink3); align-items: center; }
+.tag { background: var(--surface2); color: var(--ink2); border-radius: 6px; padding: 2px 7px; }
+.tend { font-weight: 600; color: var(--ink2); }
+.chevron { flex: none; color: var(--ink3); transition: transform .2s; margin-top: 8px; }
+.ev-tete[aria-expanded="true"] .chevron { transform: rotate(180deg); }
+.ev-detail { padding: 0 14px 14px 60px; }
+.ev-detail p { margin: 0 0 10px; line-height: 1.55; font-size: 15px; }
+.secteurs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+.secteurs span { font-size: 12.5px; border: 1px solid var(--line); border-radius: 999px; padding: 2px 9px; color: var(--ink2); }
+.srcs { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.srcs li { border-bottom: 1px solid var(--line); }
+.srcs a { display: block; padding: 9px 0; text-decoration: none; color: var(--ink); font-size: 14px; line-height: 1.35; }
+.srcs small { display: block; color: var(--accent-ink); font-size: 12px; margin-top: 2px; }
+.vide { text-align: center; color: var(--ink2); padding: 40px 20px; line-height: 1.5; }
+
+/* Carte */
+.carte-cadre { overflow: auto; border-radius: 14px; background: var(--surface); border: 1px solid var(--line); -webkit-overflow-scrolling: touch; }
+.carte-cadre svg { display: block; width: calc(100% * var(--zoom, 1)); height: auto; }
+.carte-cadre path { fill: var(--land); stroke: var(--land-line); stroke-width: .5; vector-effect: non-scaling-stroke; }
+.carte-cadre path.touche { cursor: pointer; }
+.carte-cadre path.choisi { stroke: var(--ink); stroke-width: 2; }
+.outils { display: flex; justify-content: space-between; align-items: center; margin: 10px 2px; gap: 10px; flex-wrap: wrap; }
+.legende { display: flex; gap: 4px; align-items: center; font-size: 12px; color: var(--ink2); }
+.legende .g { width: 20px; height: 20px; border-radius: 5px; font-size: 11px; }
+.zoom { display: flex; gap: 6px; }
+.zoom button { width: 36px; height: 36px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface); font-size: 20px; }
+.liste-pays { list-style: none; padding: 0; margin: 0; }
+.liste-pays button { display: flex; width: 100%; align-items: center; gap: 10px; padding: 11px 14px; text-align: left; border-bottom: 1px solid var(--line); }
+.liste-pays li:last-child button { border-bottom: 0; }
+.liste-pays .nom { flex: 1; }
+.liste-pays .n { color: var(--ink3); font-size: 13px; }
+.note { font-size: 13px; color: var(--ink3); margin: 8px 2px; line-height: 1.4; }
+
+/* Tendances */
+.graph { position: relative; }
+.graph svg { width: 100%; height: auto; display: block; overflow: visible; }
+.graph text { font-family: var(--sans); fill: var(--ink3); font-size: 11px; }
+.graph .fort { fill: var(--ink); font-weight: 700; }
+.bulle { position: absolute; pointer-events: none; background: var(--ink); color: var(--bg); font-size: 12.5px; padding: 6px 9px; border-radius: 8px; transform: translate(-50%, -100%); white-space: nowrap; line-height: 1.35; }
+.bande { width: 100%; border-collapse: separate; border-spacing: 3px; font-size: 13px; }
+.bande th { font-weight: 500; color: var(--ink3); font-size: 11px; text-transform: capitalize; }
+.bande td.p { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 120px; padding-right: 4px; }
+.bande td.c { width: 30px; height: 30px; text-align: center; border-radius: 6px; font-weight: 700; font-size: 12px; }
+.bande td.c.g0 { background: var(--surface2); }
+.bande td.e { width: 34px; text-align: center; font-weight: 700; color: var(--ink2); }
+.barre { display: flex; align-items: center; gap: 10px; margin: 8px 0; font-size: 14px; }
+.barre .l { width: 104px; color: var(--ink2); flex: none; }
+.barre .t { flex: 1; height: 10px; }
+.barre .t i { display: block; height: 100%; background: var(--accent); border-radius: 0 4px 4px 0; min-width: 3px; }
+.barre .v { width: 28px; text-align: right; font-variant-numeric: tabular-nums; color: var(--ink); }
+
+/* Navigation */
+.bas { position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; display: flex; justify-content: space-around;
+  background: color-mix(in srgb, var(--surface) 94%, transparent); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border-top: 1px solid var(--line); padding-bottom: env(safe-area-inset-bottom); }
+.bas button { flex: 1; height: var(--nav-h); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; font-size: 11.5px; color: var(--ink3); font-weight: 600; }
+.bas button[aria-current="page"] { color: var(--accent-ink); }
+.bas svg { width: 24px; height: 24px; }
+
+/* Installation */
+.installer { display: flex; gap: 12px; align-items: center; background: var(--ink); color: var(--bg); border-radius: 14px; padding: 12px 14px; margin-bottom: 14px; font-size: 14px; line-height: 1.4; }
+.installer p { margin: 0; flex: 1; }
+.installer button { font-weight: 700; }
+.installer .ok { background: var(--bg); color: var(--ink); border-radius: 9px; padding: 7px 12px; }
+.chargement { text-align: center; padding: 60px 0; color: var(--ink3); }
+</style>
+</head>
+<body>
+<header class="haut" id="haut">
+  <div class="marque"><span>Veille mondiale</span><span class="horsligne" id="horsligne" hidden>Hors connexion</span></div>
+  <div class="jour">
+    <button class="fleche" id="avant" aria-label="Jour précédent"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+    <h1 id="titre-jour">…</h1>
+    <button class="fleche" id="apres" aria-label="Jour suivant"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
+  </div>
+  <div class="stats" id="stats"></div>
+</header>
+
+<main id="vues">
+  <div class="installer" id="installer" hidden>
+    <p id="installer-texte"></p>
+    <button class="ok" id="installer-ok" hidden>Installer</button>
+    <button id="installer-non" aria-label="Fermer">✕</button>
+  </div>
+
+  <section id="vue-fil">
+    <div id="bref"></div>
+    <div class="filtres" id="filtres">
+      <div class="puces" id="puces-region"></div>
+      <div class="puces" id="puces-theme"></div>
+      <input class="recherche" id="recherche" type="search" placeholder="Rechercher un pays, un secteur, un mot…" autocomplete="off" enterkeyhint="search">
+    </div>
+    <p class="region-texte" id="region-texte" hidden></p>
+    <div class="compte" id="compte"></div>
+    <div id="liste"></div>
+    <div id="tourisme"></div>
+  </section>
+
+  <section id="vue-carte" hidden>
+    <div class="carte-cadre" id="carte"><div class="chargement">Chargement de la carte…</div></div>
+    <div class="outils">
+      <div class="legende" aria-label="Légende : gravité maximale du jour">
+        <span>Gravité</span><span class="g g1">1</span><span class="g g2">2</span><span class="g g3">3</span><span class="g g4">4</span><span class="g g5">5</span>
+      </div>
+      <div class="zoom"><button id="zoom-moins" aria-label="Dézoomer">−</button><button id="zoom-plus" aria-label="Zoomer">+</button></div>
+    </div>
+    <div id="pays-choisi"></div>
+    <h2>Pays concernés</h2>
+    <div class="carte-bloc" style="padding:0"><ul class="liste-pays" id="liste-pays"></ul></div>
+    <p class="note" id="note-monde"></p>
+  </section>
+
+  <section id="vue-tendances" hidden>
+    <h2 style="margin-top:6px">Événements par jour</h2>
+    <div class="carte-bloc graph" id="graph-jours"></div>
+    <h2>Pays à surveiller</h2>
+    <div class="carte-bloc" id="bande"></div>
+    <p class="note">Chaque case indique la gravité la plus forte relevée ce jour-là (1 à 5). L'écart compare le dernier jour à la moyenne des jours précédents.</p>
+    <h2>Secteurs sous pression</h2>
+    <div class="carte-bloc" id="secteurs"></div>
+  </section>
+</main>
+
+<nav class="bas" aria-label="Navigation">
+  <button data-vue="fil" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h10"/></svg>Aujourd'hui</button>
+  <button data-vue="carte"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></svg>Carte</button>
+  <button data-vue="tendances"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Tendances</button>
+</nav>
+
+<script>
+'use strict';
+const ISO_NUM={"AW":"533","AF":"004","AO":"024","AI":"660","AX":"248","AL":"008","AD":"020","AE":"784","AR":"032","AM":"051","AS":"016","AQ":"010","TF":"260","AG":"028","AU":"036","AT":"040","AZ":"031","BI":"108","BE":"056","BJ":"204","BQ":"535","BF":"854","BD":"050","BG":"100","BH":"048","BS":"044","BA":"070","BL":"652","BY":"112","BZ":"084","BM":"060","BO":"068","BR":"076","BB":"052","BN":"096","BT":"064","BV":"074","BW":"072","CF":"140","CA":"124","CC":"166","CH":"756","CL":"152","CN":"156","CI":"384","CM":"120","CD":"180","CG":"178","CK":"184","CO":"170","KM":"174","CV":"132","CR":"188","CU":"192","CW":"531","CX":"162","KY":"136","CY":"196","CZ":"203","DE":"276","DJ":"262","DM":"212","DK":"208","DO":"214","DZ":"012","EC":"218","EG":"818","ER":"232","EH":"732","ES":"724","EE":"233","ET":"231","FI":"246","FJ":"242","FK":"238","FR":"250","FO":"234","FM":"583","GA":"266","GB":"826","GE":"268","GG":"831","GH":"288","GI":"292","GN":"324","GP":"312","GM":"270","GW":"624","GQ":"226","GR":"300","GD":"308","GL":"304","GT":"320","GF":"254","GU":"316","GY":"328","HK":"344","HM":"334","HN":"340","HR":"191","HT":"332","HU":"348","ID":"360","IM":"833","IN":"356","IO":"086","IE":"372","IR":"364","IQ":"368","IS":"352","IL":"376","IT":"380","JM":"388","JE":"832","JO":"400","JP":"392","KZ":"398","KE":"404","KG":"417","KH":"116","KI":"296","KN":"659","KR":"410","KW":"414","LA":"418","LB":"422","LR":"430","LY":"434","LC":"662","LI":"438","LK":"144","LS":"426","LT":"440","LU":"442","LV":"428","MO":"446","MF":"663","MA":"504","MC":"492","MD":"498","MG":"450","MV":"462","MX":"484","MH":"584","MK":"807","ML":"466","MT":"470","MM":"104","ME":"499","MN":"496","MP":"580","MZ":"508","MR":"478","MS":"500","MQ":"474","MU":"480","MW":"454","MY":"458","YT":"175","NA":"516","NC":"540","NE":"562","NF":"574","NG":"566","NI":"558","NU":"570","NL":"528","NO":"578","NP":"524","NR":"520","NZ":"554","OM":"512","PK":"586","PA":"591","PN":"612","PE":"604","PH":"608","PW":"585","PG":"598","PL":"616","PR":"630","KP":"408","PT":"620","PY":"600","PS":"275","PF":"258","QA":"634","RE":"638","RO":"642","RU":"643","RW":"646","SA":"682","SD":"729","SN":"686","SG":"702","GS":"239","SH":"654","SJ":"744","SB":"090","SL":"694","SV":"222","SM":"674","SO":"706","PM":"666","RS":"688","SS":"728","ST":"678","SR":"740","SK":"703","SI":"705","SE":"752","SZ":"748","SX":"534","SC":"690","SY":"760","TC":"796","TD":"148","TG":"768","TH":"764","TJ":"762","TK":"772","TM":"795","TL":"626","TO":"776","TT":"780","TN":"788","TR":"792","TV":"798","TW":"158","TZ":"834","UG":"800","UA":"804","UM":"581","UY":"858","US":"840","UZ":"860","VA":"336","VC":"670","VE":"862","VG":"092","VI":"850","VN":"704","VU":"548","WF":"876","WS":"882","YE":"887","ZA":"710","ZM":"894","ZW":"716"};
+const CARTE_URL = 'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json';
+const ORDRE = ['Amérique du Sud', 'Afrique', 'Océanie', 'Moyen-Orient', 'Asie', 'Amérique du Nord et centrale', 'Europe', 'Monde'];
+const COURT = { 'Amérique du Nord et centrale': 'Amérique N. et C.' };
+const THEMES = { instabilite_politique: 'Instabilité politique', securite_conflit: 'Sécurité / conflit', economie_secteurs: 'Économie',
+  tourisme: 'Tourisme', catastrophe_climat: 'Catastrophe / climat', sante: 'Santé', autre: 'Autre' };
+const SECTEURS = { tourisme: 'Tourisme', transport: 'Transport', energie: 'Énergie', agriculture: 'Agriculture', mines: 'Mines',
+  industrie: 'Industrie', finance: 'Finance', commerce: 'Commerce', sante: 'Santé', technologie: 'Technologie', construction: 'Construction' };
+const TENDANCES = { nouveau: '✦ Nouveau', aggravation: '↗ S\'aggrave', apaisement: '↘ S\'apaise', stable: '→ Stable' };
+const NUM_ISO = Object.fromEntries(Object.entries(ISO_NUM).map(([a, n]) => [n, a]));
+
+const $ = (s) => document.querySelector(s);
+const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const gras = (s) => esc(s).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+const drapeau = (c) => (c && /^[A-Z]{2}$/.test(c) && c !== 'XX') ? String.fromCodePoint(...[...c].map((x) => 127397 + x.charCodeAt(0))) : '🌐';
+const lienSur = (u) => /^https?:\/\//i.test(u || '') ? u : null;
+const gClasse = (g) => 'g g' + (g >= 1 && g <= 5 ? g : 0);
+const dateLongue = (j) => { const t = new Intl.DateTimeFormat('fr-FR', { weekday: 'long', day: 'numeric', month: 'long', timeZone: 'UTC' }).format(new Date(j + 'T12:00:00Z')); return t.charAt(0).toUpperCase() + t.slice(1); };
+const jourCourt = (j) => new Intl.DateTimeFormat('fr-FR', { weekday: 'short', timeZone: 'UTC' }).format(new Date(j + 'T12:00:00Z')).replace('.', '');
+const stocker = { lire(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }, ecrire(k, v) { try { localStorage.setItem(k, v); } catch (e) { /* stockage indisponible */ } } };
+
+const etat = { jours: [], i: 0, cache: new Map(), vue: 'fil', region: null, theme: null, graves: false, recherche: '', ouverts: new Set(), pays: null, zoom: 1 };
+
+/* ---------- Données ---------- */
+async function chargerJours() {
+  let liste = [];
+  try { const r = await fetch('jours.json', { cache: 'no-cache' }); if (r.ok) liste = await r.json(); } catch (e) { /* hors connexion ou fichier absent */ }
+  liste = (Array.isArray(liste) ? liste : []).filter((j) => /^\d{4}-\d{2}-\d{2}$/.test(j));
+  if (!liste.length) { // Secours : on cherche les 10 derniers jours un par un
+    const auj = new Date();
+    for (let k = 0; k < 10; k++) {
+      const j = new Date(auj - k * 864e5).toISOString().slice(0, 10);
+      try { const d = await rapport(j); if (d) liste.push(j); } catch (e) { /* jour absent */ }
+    }
+  }
+  etat.jours = [...new Set(liste)].sort().reverse();
+}
+async function rapport(j) {
+  if (etat.cache.has(j)) return etat.cache.get(j);
+  const r = await fetch(`../donnees/${j}.json`);
+  if (!r.ok) throw new Error('absent');
+  const d = await r.json();
+  d.evenements = (d.evenements || []).map((e, k) => ({ ...e, _k: k }));
+  etat.cache.set(j, d);
+  return d;
+}
+const courant = () => etat.cache.get(etat.jours[etat.i]);
+
+/* ---------- En-tête et navigation ---------- */
+function afficherEntete() {
+  const d = courant();
+  $('#titre-jour').textContent = d ? dateLongue(d.date) : 'Aucun rapport';
+  $('#avant').disabled = etat.i >= etat.jours.length - 1;
+  $('#apres').disabled = etat.i <= 0;
+  if (d) {
+    const h = d.genere_le ? new Intl.DateTimeFormat('fr-FR', { hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Paris' }).format(new Date(d.genere_le)) : '';
+    const s = d.statistiques || {};
+    $('#stats').textContent = `${s.evenements || 0} événements · ${s.articles_resumes || 0} articles${h ? ' · ' + h : ''}`;
+  } else $('#stats').textContent = '';
+  document.documentElement.style.setProperty('--haut-h', $('#haut').offsetHeight + 'px');
+}
+async function changerJour(delta) {
+  const n = etat.i + delta;
+  if (n < 0 || n >= etat.jours.length) return;
+  etat.i = n; etat.ouverts.clear(); etat.pays = null;
+  try { await rapport(etat.jours[n]); } catch (e) { /* affiché vide */ }
+  afficher();
+  window.scrollTo({ top: 0 });
+}
+function choisirVue(v) {
+  etat.vue = v;
+  document.querySelectorAll('.bas button').forEach((b) => { if (b.dataset.vue === v) b.setAttribute('aria-current', 'page'); else b.removeAttribute('aria-current'); });
+  ['fil', 'carte', 'tendances'].forEach((x) => { $('#vue-' + x).hidden = x !== v; });
+  afficher();
+  window.scrollTo({ top: 0 });
+}
+function afficher() {
+  afficherEntete();
+  if (etat.vue === 'fil') afficherFil();
+  else if (etat.vue === 'carte') afficherCarte();
+  else afficherTendances();
+}
+
+/* ---------- Fil du jour ---------- */
+function carteEvenement(e, avecRegion = true) {
+  const ouvert = etat.ouverts.has(e._k);
+  const srcs = (e.sources || []).map((s) => { const u = lienSur(s.url); return u ? `<li><a href="${esc(u)}" target="_blank" rel="noopener">${esc(s.titre || u)}<small>${esc(s.source || new URL(u).hostname)} ↗</small></a></li>` : ''; }).join('');
+  return `<article class="ev">
+    <button class="ev-tete" data-ev="${e._k}" aria-expanded="${ouvert}">
+      <span class="${gClasse(e.gravite)}" aria-label="Gravité ${e.gravite || 'inconnue'} sur 5">${e.gravite || '–'}</span>
+      <span class="ev-corps">
+        <span class="ev-lieu">${drapeau(e.pays)} ${esc(e.nom_pays)}${avecRegion && e.region && e.region !== 'Monde' ? ' · ' + esc(COURT[e.region] || e.region) : ''}</span>
+        <span class="ev-titre">${esc(e.titre)}</span>
+        <span class="ev-meta"><span class="tag">${esc(THEMES[e.theme] || e.theme)}</span>${e.tendance ? `<span class="tend">${esc(TENDANCES[e.tendance] || e.tendance)}</span>` : ''}<span>${e.nb_sources} source${e.nb_sources > 1 ? 's' : ''}</span></span>
+      </span>
+      <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+    <div class="ev-detail" ${ouvert ? '' : 'hidden'}>
+      <p>${esc(e.resume)}</p>
+      ${(e.secteurs || []).length ? `<div class="secteurs">${e.secteurs.map((s) => `<span>${esc(SECTEURS[s] || s)}</span>`).join('')}</div>` : ''}
+      ${srcs ? `<ul class="srcs">${srcs}</ul>` : ''}
+    </div>
+  </article>`;
+}
+function puce(libelle, actif, attrs, n) {
+  return `<button class="puce" aria-pressed="${actif}" ${attrs}>${esc(libelle)}${n != null ? `<small>${n}</small>` : ''}</button>`;
+}
+function afficherFil() {
+  const d = courant();
+  if (!d) {
+    $('#bref').innerHTML = ''; $('#filtres').hidden = true; $('#compte').textContent = ''; $('#tourisme').innerHTML = ''; $('#region-texte').hidden = true;
+    $('#liste').innerHTML = `<div class="vide">Aucun rapport n'est encore publié.<br>Il apparaîtra ici après la première exécution du workflow « 4 · Rapport et publication ».</div>`;
+    return;
+  }
+  $('#filtres').hidden = false;
+  const red = d.redaction || {};
+  const alertes = ((d.synthese || {}).pays_en_alerte || []).slice().sort((a, b) => (b.gravite_max || 0) - (a.gravite_max || 0));
+  $('#bref').innerHTML = (red.en_bref && red.en_bref.length ? `<div class="carte-bloc bref"><h2>En bref</h2><ul>${red.en_bref.map((l) => `<li>${gras(l)}</li>`).join('')}</ul></div>` : '')
+    + (alertes.length ? `<div class="alertes" aria-label="Pays en alerte">${alertes.map((a) => `<button class="alerte" data-pays="${esc(a.pays)}"><span class="${gClasse(a.gravite_max)} petit">${a.gravite_max}</span>${drapeau(a.pays)} ${esc(a.nom)}</button>`).join('')}</div>` : '');
+
+  const evs = d.evenements;
+  const parRegion = {}; evs.forEach((e) => { parRegion[e.region] = (parRegion[e.region] || 0) + 1; });
+  if (etat.region && !parRegion[etat.region]) etat.region = null;
+  $('#puces-region').innerHTML = puce('Toutes', !etat.region, 'data-region=""', evs.length)
+    + ORDRE.filter((r) => parRegion[r]).map((r) => puce(COURT[r] || r, etat.region === r, `data-region="${esc(r)}"`, parRegion[r])).join('');
+  const parTheme = {}; evs.forEach((e) => { parTheme[e.theme] = (parTheme[e.theme] || 0) + 1; });
+  if (etat.theme && !parTheme[etat.theme]) etat.theme = null;
+  $('#puces-theme').innerHTML = puce('Graves (4-5)', etat.graves, 'data-graves="1"')
+    + Object.keys(THEMES).filter((t) => parTheme[t]).map((t) => puce(THEMES[t], etat.theme === t, `data-theme="${t}"`, parTheme[t])).join('');
+
+  const txt = etat.region && red.regions ? red.regions[etat.region] : null;
+  $('#region-texte').hidden = !txt; $('#region-texte').innerHTML = txt ? gras(txt) : '';
+  $('#tourisme').innerHTML = !etat.region && !etat.theme && !etat.graves && !etat.recherche && red.tourisme && red.tourisme.length
+    ? `<h2>Tourisme</h2><div class="carte-bloc bref"><ul>${red.tourisme.map((l) => `<li>${gras(l)}</li>`).join('')}</ul></div>` : '';
+  afficherListe();
+}
+function afficherListe() {
+  const d = courant(); if (!d) return;
+  const q = etat.recherche.trim().toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+  const norm = (s) => String(s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+  const evs = d.evenements.filter((e) => (!etat.region || e.region === etat.region) && (!etat.theme || e.theme === etat.theme)
+    && (!etat.graves || (e.gravite || 0) >= 4)
+    && (!q || norm([e.titre, e.resume, e.nom_pays, e.region, THEMES[e.theme], ...(e.secteurs || []).map((s) => SECTEURS[s] || s)].join(' ')).includes(q)));
+  $('#compte').textContent = `${evs.length} événement${evs.length > 1 ? 's' : ''}${evs.length !== d.evenements.length ? ' sur ' + d.evenements.length : ''}`;
+  $('#liste').innerHTML = evs.length ? evs.map((e) => carteEvenement(e, !etat.region)).join('') : '<div class="vide">Aucun événement ne correspond à ces filtres.</div>';
+}
+
+/* ---------- Carte ---------- */
+let monde = null; // { chemins: [{id, d}], vb }
+const A1 = 1.340264, A2 = -0.081106, A3 = 0.000893, A4 = 0.003796, M = Math.sqrt(3) / 2;
+function projeter(lon, lat) { // Projection « Equal Earth »
+  const l = lon * Math.PI / 180, t = Math.asin(M * Math.sin(lat * Math.PI / 180)), t2 = t * t, t6 = t2 * t2 * t2;
+  return [180 * l * Math.cos(t) / (M * (A1 + 3 * A2 * t2 + t6 * (7 * A3 + 9 * A4 * t2))), -180 * t * (A1 + A2 * t2 + t6 * (A3 + A4 * t2))];
+}
+function decoderTopo(topo) {
+  const tr = topo.transform;
+  const arcs = topo.arcs.map((a) => { let x = 0, y = 0; return a.map((p) => tr ? (x += p[0], y += p[1], [x * tr.scale[0] + tr.translate[0], y * tr.scale[1] + tr.translate[1]]) : p); });
+  const anneau = (ids) => { const pts = []; ids.forEach((i) => { const a = i < 0 ? arcs[~i].slice().reverse() : arcs[i]; a.forEach((p, k) => { if (k || !pts.length) pts.push(p); }); }); return pts; };
+  const obj = topo.objects.countries || topo.objects[Object.keys(topo.objects)[0]];
+  let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+  const chemins = obj.geometries.filter((g) => g.arcs && String(g.id) !== '010').map((g) => {
+    const polys = g.type === 'Polygon' ? [g.arcs] : g.type === 'MultiPolygon' ? g.arcs : [];
+    const d = polys.map((poly) => poly.map((ids) => anneau(ids).map((p, k) => {
+      const [x, y] = projeter(p[0], p[1]); x0 = Math.min(x0, x); x1 = Math.max(x1, x); y0 = Math.min(y0, y); y1 = Math.max(y1, y);
+      return (k ? 'L' : 'M') + x.toFixed(1) + ' ' + y.toFixed(1);
+    }).join('') + 'Z').join('')).join('');
+    return { id: String(g.id).padStart(3, '0'), nom: g.properties && g.properties.name, d };
+  });
+  return { chemins, vb: [x0 - 4, y0 - 4, x1 - x0 + 8, y1 - y0 + 8].map((v) => v.toFixed(0)).join(' ') };
+}
+async function chargerMonde() {
+  if (monde) return monde;
+  const r = await fetch(CARTE_URL);
+  if (!r.ok) throw new Error('carte');
+  monde = decoderTopo(await r.json());
+  return monde;
+}
+function gravitesParPays(d) {
+  const m = {};
+  d.evenements.forEach((e) => { if (e.pays && e.pays !== 'XX') { const x = m[e.pays] || (m[e.pays] = { g: 0, n: 0, nom: e.nom_pays }); x.g = Math.max(x.g, e.gravite || 0); x.n++; } });
+  return m;
+}
+async function afficherCarte() {
+  const d = courant();
+  const cadre = $('#carte');
+  if (!d) { cadre.innerHTML = '<div class="vide">Aucun rapport n\'est encore publié.</div>'; $('#liste-pays').innerHTML = ''; $('#pays-choisi').innerHTML = ''; $('#note-monde').textContent = ''; return; }
+  const gp = gravitesParPays(d);
+  try {
+    const w = await chargerMonde();
+    cadre.innerHTML = `<svg viewBox="${w.vb}" role="img" aria-label="Carte du monde colorée selon la gravité">${w.chemins.map((c) => {
+      const a = NUM_ISO[c.id], x = a && gp[a];
+      return `<path d="${c.d}" fill-rule="evenodd"${x ? ` class="touche${etat.pays === a ? ' choisi' : ''}" data-pays="${a}" style="fill:var(--g${x.g || 1})"` : ''}><title>${esc(x ? `${x.nom} : gravité ${x.g || '?'}, ${x.n} événement(s)` : (c.nom || ''))}</title></path>`;
+    }).join('')}</svg>`;
+    cadre.style.setProperty('--zoom', etat.zoom);
+  } catch (e) {
+    cadre.innerHTML = '<div class="vide">La carte a besoin d\'une connexion Internet la première fois.<br>Elle sera ensuite disponible hors connexion.</div>';
+  }
+  const pays = Object.entries(gp).sort((a, b) => b[1].g - a[1].g || b[1].n - a[1].n);
+  $('#liste-pays').innerHTML = pays.map(([c, x]) => `<li><button data-pays="${c}"><span class="${gClasse(x.g)} petit">${x.g || '–'}</span><span class="nom">${drapeau(c)} ${esc(x.nom)}</span><span class="n">${x.n} évén.</span></button></li>`).join('')
+    || '<li class="vide">Aucun pays concerné.</li>';
+  const nMonde = d.evenements.filter((e) => !e.pays || e.pays === 'XX').length;
+  $('#note-monde').textContent = nMonde ? `${nMonde} événement(s) de portée mondiale ne sont pas placés sur la carte : ils figurent dans l'onglet « Aujourd'hui ».` : '';
+  afficherPaysChoisi();
+}
+function afficherPaysChoisi() {
+  const d = courant(); const z = $('#pays-choisi');
+  if (!d || !etat.pays) { z.innerHTML = '<p class="note">Touchez un pays coloré, ou choisissez-le dans la liste ci-dessous.</p>'; return; }
+  const evs = d.evenements.filter((e) => e.pays === etat.pays);
+  z.innerHTML = `<h2>${drapeau(etat.pays)} ${esc(evs[0] ? evs[0].nom_pays : etat.pays)}</h2>` + evs.map((e) => carteEvenement(e, false)).join('');
+  document.querySelectorAll('#carte path.choisi').forEach((p) => p.classList.remove('choisi'));
+  const p = document.querySelector(`#carte path[data-pays="${etat.pays}"]`); if (p) p.classList.add('choisi');
+}
+
+/* ---------- Tendances ---------- */
+async function afficherTendances() {
+  const jours = etat.jours.slice(etat.i, etat.i + 7).reverse();
+  if (!jours.length) { $('#graph-jours').innerHTML = '<div class="vide">Aucun rapport.</div>'; $('#bande').innerHTML = ''; $('#secteurs').innerHTML = ''; return; }
+  const donnees = await Promise.all(jours.map((j) => rapport(j).catch(() => null)));
+  // 1) Barres : nombre d'événements par jour
+  const W = 340, H = 150, b = 22, haut = 16, larg = W / jours.length;
+  const vals = donnees.map((d) => d ? d.evenements.length : 0);
+  const graves = donnees.map((d) => d ? d.evenements.filter((e) => (e.gravite || 0) >= 4).length : 0);
+  const max = Math.max(1, ...vals);
+  const y = (v) => H - b - (v / max) * (H - b - haut);
+  const barre = (x, yt, w) => { const r = Math.min(4, (H - b - yt) / 2, w / 2); return `M${x} ${H - b}V${yt + r}Q${x} ${yt} ${x + r} ${yt}H${x + w - r}Q${x + w} ${yt} ${x + w} ${yt + r}V${H - b}Z`; };
+  $('#graph-jours').innerHTML = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Nombre d'événements par jour">
+    <line x1="0" x2="${W}" y1="${y(max)}" y2="${y(max)}" stroke="var(--line)" stroke-dasharray="2 3"/>
+    <text x="0" y="${y(max) - 4}">${max}</text>
+    ${vals.map((v, k) => { const w = larg * 0.56, x = k * larg + (larg - w) / 2; return v ? `<path d="${barre(x, y(v), w)}" fill="var(--accent)"/>` : ''; }).join('')}
+    <line x1="0" x2="${W}" y1="${H - b}" y2="${H - b}" stroke="var(--ink3)" stroke-width="1"/>
+    ${jours.map((j, k) => `<text x="${k * larg + larg / 2}" y="${H - 6}" text-anchor="middle" class="${k === jours.length - 1 ? 'fort' : ''}">${jourCourt(j)}</text>`).join('')}
+    <text x="${(jours.length - 0.5) * larg}" y="${y(vals[vals.length - 1]) - 5}" text-anchor="middle" class="fort">${vals[vals.length - 1]}</text>
+    ${jours.map((j, k) => `<rect x="${k * larg}" y="0" width="${larg}" height="${H}" fill="transparent" data-k="${k}"/>`).join('')}
+  </svg><div class="bulle" hidden></div>`;
+  const zone = $('#graph-jours'), bulle = zone.querySelector('.bulle');
+  zone.querySelectorAll('rect[data-k]').forEach((r) => {
+    const montrer = () => { const k = +r.dataset.k, box = zone.getBoundingClientRect(), s = zone.querySelector('svg').getBoundingClientRect();
+      bulle.hidden = false; bulle.innerHTML = `<strong>${esc(dateLongue(jours[k]))}</strong><br>${vals[k]} événements, dont ${graves[k]} graves`;
+      bulle.style.left = Math.min(Math.max((s.left - box.left) + (k + 0.5) * larg * s.width / W, 90), box.width - 90) + 'px';
+      bulle.style.top = (s.top - box.top) + y(vals[k]) * s.height / H - 6 + 'px'; };
+    r.addEventListener('pointerenter', montrer); r.addEventListener('click', montrer);
+    r.addEventListener('pointerleave', () => { bulle.hidden = true; });
+  });
+  // 2) Bande de chaleur : gravité maximale par pays et par jour
+  const pays = {};
+  donnees.forEach((d, k) => { if (!d) return; Object.entries(gravitesParPays(d)).forEach(([c, x]) => { const p = pays[c] || (pays[c] = { nom: x.nom, g: Array(jours.length).fill(0) }); p.g[k] = Math.max(p.g[k], x.g); }); });
+  const dern = jours.length - 1;
+  const lignes = Object.entries(pays).map(([c, p]) => { const av = p.g.slice(0, dern), moy = av.length ? av.reduce((s, v) => s + v, 0) / av.length : 0;
+    return { c, ...p, cumul: p.g.reduce((s, v) => s + v, 0), ecart: dern ? p.g[dern] - moy : 0 }; })
+    .filter((p) => Math.max(...p.g) >= 3).sort((a, b) => b.g[dern] - a.g[dern] || b.cumul - a.cumul).slice(0, 15);
+  $('#bande').innerHTML = lignes.length ? `<table class="bande"><thead><tr><th></th>${jours.map((j) => `<th>${jourCourt(j).slice(0, 3)}</th>`).join('')}<th>Écart</th></tr></thead><tbody>${lignes.map((p) =>
+    `<tr><td class="p">${drapeau(p.c)} ${esc(p.nom)}</td>${p.g.map((g) => `<td class="c ${g ? 'g' + g : 'g0'}" title="Gravité ${g || 'aucune'}">${g || ''}</td>`).join('')}<td class="e" title="Écart avec la moyenne">${dern ? (p.ecart > 0.5 ? '↗' : p.ecart < -0.5 ? '↘' : '→') : ''}</td></tr>`).join('')}</tbody></table>`
+    : '<div class="vide">Aucun pays avec une gravité de 3 ou plus sur la période.</div>';
+  // 3) Secteurs du jour affiché
+  const sec = ((donnees[dern] || {}).synthese || {}).secteurs_menaces || [];
+  const smax = Math.max(1, ...sec.map((s) => s.nb_evenements));
+  $('#secteurs').innerHTML = sec.length ? sec.slice(0, 10).map((s) => `<div class="barre" title="${esc((s.pays || []).join(', '))}"><span class="l">${esc(SECTEURS[s.secteur] || s.secteur)}</span><span class="t"><i style="width:${(s.nb_evenements / smax) * 100}%"></i></span><span class="v">${s.nb_evenements}</span></div>`).join('')
+    : '<div class="vide">Aucun secteur signalé ce jour-là.</div>';
+}
+
+/* ---------- Interactions ---------- */
+document.addEventListener('click', (ev) => {
+  const t = ev.target.closest('button'); if (!t) return;
+  if (t.dataset.ev != null) {
+    const k = +t.dataset.ev, ouvert = !etat.ouverts.has(k);
+    ouvert ? etat.ouverts.add(k) : etat.ouverts.delete(k);
+    document.querySelectorAll(`.ev-tete[data-ev="${k}"]`).forEach((b) => { b.setAttribute('aria-expanded', ouvert); b.nextElementSibling.hidden = !ouvert; });
+  } else if (t.dataset.region != null) { etat.region = t.dataset.region || null; afficherFil(); }
+  else if (t.dataset.theme != null) { etat.theme = etat.theme === t.dataset.theme ? null : t.dataset.theme; afficherFil(); }
+  else if (t.dataset.graves) { etat.graves = !etat.graves; afficherFil(); }
+  else if (t.dataset.pays) { etat.pays = t.dataset.pays; if (etat.vue !== 'carte') choisirVue('carte'); else { afficherPaysChoisi(); $('#pays-choisi').scrollIntoView({ behavior: 'smooth', block: 'start' }); } }
+  else if (t.dataset.vue) choisirVue(t.dataset.vue);
+});
+$('#carte').addEventListener('click', (ev) => {
+  const p = ev.target.closest('path[data-pays]'); if (!p) return;
+  etat.pays = p.dataset.pays; afficherPaysChoisi();
+});
+$('#recherche').addEventListener('input', (e) => { etat.recherche = e.target.value; afficherListe(); $('#tourisme').hidden = !!etat.recherche; });
+$('#avant').addEventListener('click', () => changerJour(1));
+$('#apres').addEventListener('click', () => changerJour(-1));
+const zoomer = (f) => { etat.zoom = Math.min(4, Math.max(1, etat.zoom * f)); $('#carte').style.setProperty('--zoom', etat.zoom); };
+$('#zoom-plus').addEventListener('click', () => zoomer(1.6));
+$('#zoom-moins').addEventListener('click', () => zoomer(1 / 1.6));
+// Glisser le doigt vers la droite : jour précédent ; vers la gauche : jour suivant
+let x0 = null, y0 = null;
+$('#vues').addEventListener('touchstart', (e) => { if (e.target.closest('#carte, .puces')) { x0 = null; return; } x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; }, { passive: true });
+$('#vues').addEventListener('touchend', (e) => {
+  if (x0 == null) return; const dx = e.changedTouches[0].clientX - x0, dy = e.changedTouches[0].clientY - y0; x0 = null;
+  if (Math.abs(dx) > 70 && Math.abs(dy) < 45) changerJour(dx > 0 ? 1 : -1);
+}, { passive: true });
+document.addEventListener('keydown', (e) => { if (e.target.matches('input')) return; if (e.key === 'ArrowLeft') changerJour(1); if (e.key === 'ArrowRight') changerJour(-1); });
+const majConnexion = () => { $('#horsligne').hidden = navigator.onLine; };
+addEventListener('online', majConnexion); addEventListener('offline', majConnexion);
+
+/* ---------- Installation sur l'écran d'accueil ---------- */
+let demandeInstall = null;
+const autonome = matchMedia('(display-mode: standalone)').matches || navigator.standalone;
+function proposerInstall(texte, bouton) {
+  if (autonome || stocker.lire('install-refuse')) return;
+  $('#installer-texte').innerHTML = texte; $('#installer-ok').hidden = !bouton; $('#installer').hidden = false;
+}
+addEventListener('beforeinstallprompt', (e) => { e.preventDefault(); demandeInstall = e; proposerInstall('Installez la veille sur votre écran d\'accueil pour l\'ouvrir comme une application.', true); });
+$('#installer-ok').addEventListener('click', async () => { if (!demandeInstall) return; demandeInstall.prompt(); await demandeInstall.userChoice; demandeInstall = null; $('#installer').hidden = true; });
+$('#installer-non').addEventListener('click', () => { $('#installer').hidden = true; stocker.ecrire('install-refuse', '1'); });
+if (/iphone|ipad|ipod/i.test(navigator.userAgent) && !autonome) proposerInstall('Pour l\'installer : touchez <strong>Partager</strong> ⎙ puis <strong>« Sur l\'écran d\'accueil »</strong>.', false);
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => { /* lecture hors connexion indisponible */ });
+
+/* ---------- Démarrage ---------- */
+(async function demarrer() {
+  majConnexion();
+  $('#liste').innerHTML = '<div class="chargement">Chargement…</div>';
+  await chargerJours();
+  if (etat.jours.length) { try { await rapport(etat.jours[0]); } catch (e) { /* rapport illisible */ } }
+  afficher();
+})();
+</script>
+</body>
+</html>
