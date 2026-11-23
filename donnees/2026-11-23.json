@@ -1,0 +1,194 @@
+{
+  "date": "2026-11-23",
+  "genere_le": "2026-11-23T15:20:13.554Z",
+  "periode": {
+    "debut": "2026-11-22T15:20:13.554Z",
+    "fin": "2026-11-23T15:20:13.554Z"
+  },
+  "statistiques": {
+    "articles_resumes": 10,
+    "evenements": 5,
+    "par_theme": {
+      "instabilite_politique": 5
+    },
+    "par_region": {
+      "Amérique du Sud": 3,
+      "Europe": 1,
+      "Afrique": 1
+    }
+  },
+  "synthese": {
+    "pays_en_alerte": [],
+    "secteurs_menaces": [
+      {
+        "secteur": "transport",
+        "nb_evenements": 3,
+        "pays": [
+          "Colombie",
+          "Ukraine"
+        ]
+      },
+      {
+        "secteur": "sante",
+        "nb_evenements": 2,
+        "pays": [
+          "Argentine",
+          "Colombie"
+        ]
+      },
+      {
+        "secteur": "finance",
+        "nb_evenements": 1,
+        "pays": [
+          "Colombie"
+        ]
+      },
+      {
+        "secteur": "construction",
+        "nb_evenements": 1,
+        "pays": [
+          "Ukraine"
+        ]
+      }
+    ],
+    "tourisme": []
+  },
+  "evenements": [
+    {
+      "evenement_id": 4,
+      "pays": "AR",
+      "nom_pays": "Argentine",
+      "region": "Amérique du Sud",
+      "theme": "instabilite_politique",
+      "gravite": 3,
+      "tendance": "stable",
+      "titre": "Une thèse analyse les différentes manifestations de violence dans les relations de couple et son impact sur la santé mentale et le bien-être psychologique",
+      "resume": "Une thèse de l'Université de La Rioja examine les différentes formes de violence dans les relations de couple et leur influence sur la santé mentale et le bien-être psychologique.",
+      "secteurs": [
+        "sante"
+      ],
+      "nb_sources": 4,
+      "sources": [
+        {
+          "titre": "Une thèse analyse les différentes manifestations de violence dans les relations de couple et son impact sur la santé mentale et le bien-être psychologique",
+          "url": "https://news.google.com/rss/articles/CBMilAJBVV95cUxNaWhhal9PSEtibVMxMG1JOEV1MEtpTTE2WXNoTzljNTNXa3RPNDVYRWU5YkVBMGRHX0tRVTV4TEgySVY5N3gxLWtKeUd5dmdLejk3TjJEWkwtdm5OOXZlX3h2VTd2Y3pkbWRlOTJVUTk0RGNUOTc3dzFONHVRcTFqNDNCLVJzWWtWOWxBM2tLNlNyNnN4OExrQjB2YVZnZWVRbXFlLVJhM01Vc0pkTXlWS0ZTU2hGVGoyLXhvV05zTFJ6d2NOS1VPcU56VEE5Mlp0ZW9mM2Z6Y1BYckhxeW83UzVtU1JHNzdybm1RQlZPc0EwbU5jb0o0TGFpSERtbjM5NlRhb1g5QVRQaG14bkM2Mjh0QTU?oc=5",
+          "source": "Universidad de La Rioja"
+        },
+        {
+          "titre": "Municipalité rappelle les moyens d'attention et d'accompagnement pour les situations de violence de genre",
+          "url": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxNNlpkU3Nva0FHWG5VREszLXBmNjRjUHo5QXJQTUk4V0xqSURRbzBic3h6cWRMcGZYOXVFek9GeHpUNV80VnpxSEI0YzF2V1FYUnZpMmlOSmVXOHIyODBoZGxNaHg0M1M3Rmo3X1BQQlJjbWtXU3B4QlZVOEhNb1ZvcmIzSHVwNUpGZDAxbDZVb1hOcVZOTnZzWHRrZEtGNVdPbHVJUXBlb2g2Ym9FVjZyVUFmeklyR3VCVE8wTzJMNTUydzg2cGJTZUVVTkYzazRHbGtpWDhPdkY4NGdlMlo1eVFVUWRfRHZJdW56V1pjcFM?oc=5",
+          "source": "Diario Castellanos"
+        },
+        {
+          "titre": "Convocation à une marche contre la violence à l'égard des femmes à Comodoro",
+          "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPQmE2MGxYczZ6N2hQOTdmUm41RWhTMVdKQ3RZY1F3ZTRsUGJrTmZfQV9CQkQzb19mVVB6bEtDSzlMV2V0bklWVURxbTJPYm9TcEs5ME9CWHUzSElFYXIwcUU2d0xpQkF6YnBWcEdZeV9fVlVCYTkzV2pqbU4zYUhhWWxlRzgwczROVE80T08zMWpVQUdtT0lrdkN1TVlWeS1QcWhMc2RBVG9XekhKZ2xGUA?oc=5",
+          "source": "La Posta Comodorense"
+        },
+        {
+          "titre": "SCANDALE ET VIOLENCE À MUANA",
+          "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQUThTR0FiRmRjZmJ3V1A5TkpxY2otRlA1dmtZblFvTmFyU2JsNTlYTDlVckhjV1VieGRLZHAxQ0ZSbU5NT1NKRUk3NlhvTUNTdTZXU0E0a1hXYVVySmVuU0xzR05uN0xGXzhPajFqZE5aMEVNeHh5Q0xqTGFOeUpEWFZPaw?oc=5",
+          "source": "Catamarcaencana"
+        }
+      ]
+    },
+    {
+      "evenement_id": 1,
+      "pays": "CO",
+      "nom_pays": "Colombie",
+      "region": "Amérique du Sud",
+      "theme": "instabilite_politique",
+      "gravite": 3,
+      "tendance": "aggravation",
+      "titre": "Attaque avec drones contre un bataillon au César cause un mort et 12 blessés : alerte hospitalière dans la région",
+      "resume": "Un attaque avec des drones a causé la mort d'un militaire et 12 blessés dans un bataillon de l'armée au César. Une alerte hospitalière est en vigueur dans la région.",
+      "secteurs": [
+        "transport",
+        "sante"
+      ],
+      "nb_sources": 2,
+      "sources": [
+        {
+          "titre": "Attaque avec drones contre un bataillon au César cause un mort et 12 blessés : alerte hospitalière dans la région",
+          "url": "https://www.eltiempo.com/colombia/otras-ciudades/ataque-con-drones-contra-batallon-en-el-cesar-deja-un-militar-fallecido-y-12-mas-heridos-hay-alerta-hospitalaria-en-la-region-3603142",
+          "source": "eltiempo.com"
+        },
+        {
+          "titre": "Crisis humanitaire s'aggrave en Catatumbo, Norte de Santander : attaques avec drones et violence",
+          "url": "https://www.pulzo.com/nacion/catatumbo-norte-de-santander-crisis-humanitaria-se-agudiza-por-ataques-con-drones-y-violencia-PP5361651A",
+          "source": "pulzo.com"
+        }
+      ]
+    },
+    {
+      "evenement_id": 5,
+      "pays": "CO",
+      "nom_pays": "Colombie",
+      "region": "Amérique du Sud",
+      "theme": "instabilite_politique",
+      "gravite": 3,
+      "tendance": "nouveau",
+      "titre": "Ancien président Gustavo Petro réagit à la demande du MinTIC de suspendre son compte X pour incitation à la violence",
+      "resume": "L'ancien président Gustavo Petro a réagié par un message publié sur la même plateforme, dénonçant la demande du Ministère de la Technologie de l'Information et des Communications (MinTIC) de suspendre son compte X pour incitation à la violence. Il a qualifié cette mesure de censure et a critiqué la légitimité du gouvernement actuel.",
+      "secteurs": [
+        "finance",
+        "transport"
+      ],
+      "nb_sources": 2,
+      "sources": [
+        {
+          "titre": "Ancien président Gustavo Petro réagit à la demande du MinTIC de suspendre son compte X pour incitation à la violence",
+          "url": "https://www.semana.com/politica/articulo/expresidente-gustavo-petro-reacciona-a-la-peticion-del-mintic-para-que-suspendan-su-cuenta-de-x-por-incitacion-a-la-violencia/202653/",
+          "source": "semana.com"
+        },
+        {
+          "titre": "Alias Blue condamnée pour terrorisme dans les manifestations : révélations sur son rôle",
+          "url": "https://www.semana.com/nacion/articulo/alias-blue-va-a-la-carcel-por-presunto-terrorismo-en-manifestaciones-revelan-su-papel-en-las-marchas/202608/",
+          "source": "semana.com"
+        }
+      ]
+    },
+    {
+      "evenement_id": 3,
+      "pays": "UA",
+      "nom_pays": "Ukraine",
+      "region": "Europe",
+      "theme": "instabilite_politique",
+      "gravite": 3,
+      "tendance": "nouveau",
+      "titre": "Deux morts dans un raid de drone russe en région de Kyiv",
+      "resume": "Au moins deux personnes ont été tuées et environ dix autres peuvent encore être piégées sous les débris d'une résidence. Le président Volodymyr Zelenskiy et les autorités locales ont déclaré que le bâtiment de cinq étages avait été frappé par un drone russe.",
+      "secteurs": [
+        "transport",
+        "construction"
+      ],
+      "nb_sources": 1,
+      "sources": [
+        {
+          "titre": "Deux morts dans un raid de drone russe en région de Kyiv",
+          "url": "https://www.maitlandmercury.com.au/story/9396087/two-dead-in-russian-drone-strike-in-kyiv-region/",
+          "source": "maitlandmercury.com.au"
+        }
+      ]
+    },
+    {
+      "evenement_id": 2,
+      "pays": "KE",
+      "nom_pays": "Kenya",
+      "region": "Afrique",
+      "theme": "instabilite_politique",
+      "gravite": 3,
+      "tendance": "aggravation",
+      "titre": "Trump indique qu'il est disposé à reprendre la guerre contre l'Iran si aucun accord n'est conclu d'ici la fin de l'année",
+      "resume": "Le président américain Donald Trump indique qu'il est prêt à reprendre les hostilités contre l'Iran si aucun accord n'est signé d'ici la fin de l'année.",
+      "secteurs": [],
+      "nb_sources": 1,
+      "sources": [
+        {
+          "titre": "Trump indique qu'il est disposé à reprendre la guerre contre l'Iran si aucun accord n'est conclu d'ici la fin de l'année",
+          "url": "http://www.kenyastar.com/news/279449209/trump-says-inclined-to-resume-war-on-iran-if-no-deal-reached-by-new-year",
+          "source": "kenyastar.com"
+        }
+      ]
+    }
+  ]
+}
