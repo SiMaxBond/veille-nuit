@@ -11,4 +11,4 @@ header_pages:
 
 # Si le site est https://votre-identifiant.github.io/nom-du-depot/, mettez :
 # baseurl: "/nom-du-depot"
-baseurl: ""
+baseurl: "/veille-nuit"
