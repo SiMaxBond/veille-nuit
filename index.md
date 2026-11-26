@@ -3,15 +3,15 @@ layout: default
 title: "Aujourd'hui"
 ---
 {% raw %}
-# Veille mondiale — lundi 23 novembre 2026
+# Veille mondiale — jeudi 26 novembre 2026
 
-*10 articles résumés, 5 événements, sur les 24 dernières heures.*
+*8 articles résumés, 6 événements, sur les 24 dernières heures.*
 
 ## En bref
 
-- En Argentine, une thèse de l’Université de La Rioja révèle l’impact de la violence conjugale sur la santé mentale, accentuant les tensions sociales.
-- En Colombie, un attentat de drones contre un bataillon à César fait un mort et 12 blessés, déclenchant une alerte hospitalière.
-- En Ukraine, un raid de drone russe sur une résidence de Kyiv tue deux personnes et laisse une dizaine de victimes potentielles sous les décombres.
+- La crise de Tongaat Hulett en Afrique du Sud menace les producteurs de sucre, la sécurité alimentaire et l’économie rurale.
+- Une alerte humanitaire a été lancée dans les camps de la bande de Gaza face à une ouraganisation et une tempête douce, risquant une catastrophe pour 1,76 million de personnes.
+- Le président turc Recep Tayyip Erdoğan a réorganisé les gouverneurs de 41 départements, dont 14 transférés à l’Intérieur, marquant une importante réorganisation administrative.
 
 ## Zones d'agitation
 
@@ -19,36 +19,39 @@ Aucune situation de gravité 4 ou plus aujourd'hui.
 
 ## Secteurs sous pression
 
-- **Transport** : 3 événement(s) — Colombie, Ukraine
-- **Santé** : 2 événement(s) — Argentine, Colombie
-- **Finance** : 1 événement(s) — Colombie
-- **Construction** : 1 événement(s) — Ukraine
+- **Transport** : 5 événement(s) — Territoires palestiniens, Turquie, Libye, Mexique, Iran
+- **Construction** : 3 événement(s) — Territoires palestiniens, Turquie, Iran
+- **Finance** : 2 événement(s) — Afrique du Sud, Turquie
+- **Santé** : 2 événement(s) — Territoires palestiniens, Turquie
+- **Agriculture** : 1 événement(s) — Afrique du Sud
+- **Industrie** : 1 événement(s) — Iran
 
 ## Tourisme
 
-- Aucun élément notable concernant le tourisme n’est disponible aujourd’hui.
+- Aucun élément notable concernant le tourisme n’a été signalé aujourd’hui.
 
 ## Par région
 
-### Amérique du Sud
-
-En Amérique du Sud, la situation se détériore simultanément en Argentine et en Colombie. En Argentine, une thèse de l’Université de La Rioja met en lumière la violence conjugale et ses répercussions sur la santé mentale, soulignant une tension sociale qui pourrait alimenter un climat d’instabilité politique. En Colombie, deux événements aggravent la crise : un attentat de drones contre un bataillon à César a fait un mort et 12 blessés, déclenchant une alerte hospitalière, tandis que l’ancien président Gustavo Petro conteste la demande du MinTIC de suspendre son compte X, dénonçant une censure perçue. Ces épisodes renforcent l’incertitude sécuritaire, risquant de freiner les investissements étrangers, de ralentir la reprise économique et de décourager le tourisme, les visiteurs étant de plus en plus réticents à se rendre dans des zones perçues comme instables.
-
 ### Afrique
 
-En Afrique, le Kenya connaît une instabilité politique notable, évaluée à un niveau de gravité 3, selon le seul article disponible. Cette tension interne risque d’accentuer les incertitudes sécuritaires, affectant la confiance des investisseurs et ralentissant les projets économiques en cours. Parallèlement, aux États‑Unis, le président Donald Trump a déclaré être prêt à reprendre les hostilités contre l’Iran si aucun accord n’est conclu d’ici la fin de l’année, une posture qui pourrait avoir des répercussions indirectes sur les marchés mondiaux, y compris ceux du Kenya, en augmentant la volatilité des cours des matières premières et en compliquant les flux financiers. La combinaison de ces deux développements crée un climat d’incertitude qui pourrait freiner le tourisme et ralentir la reprise économique dans la région.
+En Afrique du Sud, la crise de Tongaat Hulett fragilise les producteurs de sucre et menace les revenus de milliers de familles rurales, accentuant les risques pour la sécurité alimentaire et ralentissant la croissance économique locale. Cette détérioration du secteur agro‑alimentaire pourrait réduire les exportations de sucre, affecter les chaînes d’approvisionnement et décourager les investissements touristiques dans les zones rurales où l’agritourisme joue un rôle croissant. En Libye, la mort de deux soldats libyens, victimes de blessures subies lors d’une attaque ukrainienne contre des navires russes, souligne la persistance de tensions géopolitiques dans la région méditerranéenne. Ces incidents renforcent l’instabilité sécuritaire, ce qui peut dissuader les visiteurs et compliquer les flux commerciaux, impactant ainsi le secteur du tourisme et les échanges économiques du pays.
 
-### Europe
+### Moyen-Orient
 
-En Europe, l’Ukraine connaît une escalade de l’instabilité politique après le raid de drone russe qui a touché une résidence de cinq étages dans la région de Kyiv, faisant deux morts et laissant une dizaine de personnes potentiellement piégées sous les décombres. Cette attaque renforce les tensions déjà vives et accentue le climat d’insécurité, ce qui pourrait freiner les investissements étrangers et réduire les flux touristiques, les visiteurs hésitant à se rendre dans des zones où la menace d’attaques aériennes persiste. La persistance de ces violences risque d’alourdir les coûts de reconstruction et de sécurité, tout en détériorant l’image du pays comme destination sûre, impactant ainsi à la fois l’économie locale et le secteur du tourisme.
+Dans les territoires palestiniens, une alerte humanitaire a été lancée face à la perspective d’une ouraganisation et d’une tempête douce qui menacent les 1,76 million de Palestiniens vivant dans les camps de la bande de Gaza, avec enfants, malades et personnes âgées particulièrement vulnérables ; le gouvernement palestinien a appelé à l’arrêt des attaques israéliennes, soulignant le risque d’une catastrophe humaine. En Turquie, le président Recep Tayyip Erdoğan a signé deux décrets modifiant les gouverneurs de 41 départements, dont 14 transférés à l’Intérieur, et a nommé un nouveau directeur à l’Académie de la Police, signe d’une réorganisation politique qui pourrait affecter la stabilité administrative. En Iran, les autorités ont menacé d’une réponse « destructrice » si des installations clés étaient attaquées, renforçant les tensions régionales. Ces développements aggravent l’insécurité, freinent les flux touristiques et pèsent sur les économies locales déjà fragilisées par les conflits et les incertitudes politiques.
+
+### Amérique du Nord et centrale
+
+Dans la région d’Amérique du Nord et centrale, le Mexique connaît une escalade de l’instabilité politique, notée à un niveau de gravité 3, suite à la marche organisée le 25 novembre à Mexico contre la violence faite aux femmes. Cette mobilisation, largement médiatisée, révèle un climat de tension sociale qui pourrait se traduire par des perturbations des services publics et des déplacements, affectant la confiance des investisseurs et ralentissant les projets d’infrastructure. Le climat d’insécurité croissant risque également de décourager les touristes, notamment ceux attirés par les festivals culturels et les sites historiques de la capitale, entraînant une baisse des recettes du secteur hôtelier et de la restauration. Les autorités locales devront donc concilier sécurité et maintien de l’attractivité économique pour éviter une détérioration plus profonde du climat d’affaires et du tourisme.
 
 ## Principales sources
 
-- [Une thèse analyse les différentes manifestations de violence dans les relations de couple et son impact sur la santé mentale et le bien-être psychologique](https://news.google.com/rss/articles/CBMilAJBVV95cUxNaWhhal9PSEtibVMxMG1JOEV1MEtpTTE2WXNoTzljNTNXa3RPNDVYRWU5YkVBMGRHX0tRVTV4TEgySVY5N3gxLWtKeUd5dmdLejk3TjJEWkwtdm5OOXZlX3h2VTd2Y3pkbWRlOTJVUTk0RGNUOTc3dzFONHVRcTFqNDNCLVJzWWtWOWxBM2tLNlNyNnN4OExrQjB2YVZnZWVRbXFlLVJhM01Vc0pkTXlWS0ZTU2hGVGoyLXhvV05zTFJ6d2NOS1VPcU56VEE5Mlp0ZW9mM2Z6Y1BYckhxeW83UzVtU1JHNzdybm1RQlZPc0EwbU5jb0o0TGFpSERtbjM5NlRhb1g5QVRQaG14bkM2Mjh0QTU?oc=5) — Universidad de La Rioja
-- [Attaque avec drones contre un bataillon au César cause un mort et 12 blessés : alerte hospitalière dans la région](https://www.eltiempo.com/colombia/otras-ciudades/ataque-con-drones-contra-batallon-en-el-cesar-deja-un-militar-fallecido-y-12-mas-heridos-hay-alerta-hospitalaria-en-la-region-3603142) — eltiempo.com
-- [Ancien président Gustavo Petro réagit à la demande du MinTIC de suspendre son compte X pour incitation à la violence](https://www.semana.com/politica/articulo/expresidente-gustavo-petro-reacciona-a-la-peticion-del-mintic-para-que-suspendan-su-cuenta-de-x-por-incitacion-a-la-violencia/202653/) — semana.com
-- [Deux morts dans un raid de drone russe en région de Kyiv](https://www.maitlandmercury.com.au/story/9396087/two-dead-in-russian-drone-strike-in-kyiv-region/) — maitlandmercury.com.au
-- [Trump indique qu'il est disposé à reprendre la guerre contre l'Iran si aucun accord n'est conclu d'ici la fin de l'année](http://www.kenyastar.com/news/279449209/trump-says-inclined-to-resume-war-on-iran-if-no-deal-reached-by-new-year) — kenyastar.com
+- [Crisis de Tongaat Hulett Menace les Producteurs de Sucre et Desmillants Ruraux](https://news.google.com/rss/articles/CBMirAFBVV95cUxQNERIdDBKS1JxUlpfdVNkRy1sWHhTWlFtdlA0WHlFbzdIeW9tVDNhQW0zT2JYRDd6eGcta1I4WXZMM2lwTzdYdlpxYks0Z3d3eW04U09SWlctR0gxTmZmSDhCOWRpdU1ZV2JaN0VpVDF2ZU4zbjNEd0dOTzNxbTIzNWdoQXVrV0pScmVKQU15N2w3dUc2cVJsSXlRRE0zalktZVg5Ry1kdFhkSXVx?oc=5) — newsnote
+- [Alerte à la crise humanitaire en Cisjordanie](https://www.sozcu.com.tr/gazzede-176-milyon-filistinli-saganak-ve-soguk-tehdidi-altinda-p384142) — sozcu.com.tr
+- [41 départements ont changé de gouverneur, 14 ont été transférés à l'Ictère de l'Intérieur](https://www.trthaber.com/haber/gundem/41-ilin-valisi-degisti-14-vali-merkeze-cekildi-964375.html) — trthaber.com
+- [Deux soldats libyens meurent des blessures subies dans l'attaque ukrainienne sur des navires russes](https://news.google.com/rss/articles/CBMiWEFVX3lxTFA1V0VUTWRKd3B3b0VvUGIteWVPMDN1UXJSaklDLWVVT0hHbzRkVW5HMnc1czFFWVAtNmFZdTNwaHM4Nl9UZ200eUtHX2hQbFA2YVRQak5KUkg?oc=5) — Ahram Online
+- [Marche 25N au Mexique : horaires, itinéraire et clés de la mobilisation contre la violence à l'égard des femmes](https://news.google.com/rss/articles/CBMizgFBVV95cUxQUTNZS1M2X3hhb1ZMY3FOODlBdFJ3M1l4UGQ1ZXFuUF8zei15WTV4VnNIX2Z2dzN4bEw0WkVfQjM4WVJKOTk5X1hxelFad21ELTFydEpkbXl4THRUbEdSb2llS1Y1bzJPaWNsYVNyQWQ3MmxuTGZkTTBmU1NvRE1lQkZxMTRlUGZHUG5PMHhJYVBMVEw3Vm1qa0VuQnczVDVyZGF4M2JZcmh4emRxNDdLOW9QbXZhelBpem5qVVdIdmtMbXExUFByc0c2OVg3QdIB4gFBVV95cUxPSWFFTzZwQUNBRWVwOTJ0Q08yWnVhOTNOUkZISzVZSDY5aF9oS0xuU3F0ZmgtcEg4Mk0xZTBPWGFFb1kxSkU5c0lUdnZaYXo5NlZKdVF5Vk4wQlJpR0x1S3Y5V1lTclRXTGljbGxtU3N4T2NqRk8xcDJPRU9TNUxHZ1RzdUlFZ2lPeUlQOTEtMWFyaEo4OUljcFJFeWZ5ODhRSWIxemV3TFExSk1XRFBiM1Bpb3JaUHZBcVQxOTVHUGtNcms2TVNjSWhZaDI5U054SzVmWjdXZkdTWnZDRXRLRHBn?oc=5) — EL PAÍS
+- [Iran menace de réponse destructrice si des installations clés sont attaquées](https://news.google.com/rss/articles/CBMirAFBVV95cUxQSHJjM2R3V3E5b093TjAxWmZDQ2xTQTNOUG5VTEZPRkNzSVJkeUhhVFh2WjBHV240SVlpdFVacTJpV0x1b1ZzV1BRMHB0V2pJeklraHI5NkFBUHpFSUpQd3ZOd0RlbzV3RU1CdjhfTzNkMjh5eGtYWklWVUdaTVJfaHRGTFVGN2g4dTB3OTNHdlJ0SGtsZUU0WW9FSlpTc1dYMjdjUHhSNFVMVXls0gGsAUFVX3lxTFBIcmMzZHdXcTlvT3dOMDFaZkNDbFNBM05QblVMRk9GQ3NJUmR5SGFUWHZaMEdXbjRJWWl0VVpxMmlXTHVvVnNXUFEwcHRXakl6SWtocjk2QUFQekVJSlB3dk53RGVvNXdFTUJ2OF9PM2QyOHl4a1haSVZVR1pNUl9odEZMVUY3aDh1MHc5M0d2UnRIa2xlRTRZb0VKWlNzV1gyN2NQeFI0VUxVeWw?oc=5) — Africanews
 
 {% endraw %}
-[Données du jour au format JSON (pour une IA)]({{ site.baseurl }}/donnees/2026-11-23.json) · [Archives]({{ site.baseurl }}/archives/)
+[📱 Application mobile]({{ site.baseurl }}/app/) · [Données du jour au format JSON (pour une IA)]({{ site.baseurl }}/donnees/2026-11-26.json) · [Archives]({{ site.baseurl }}/archives/)
