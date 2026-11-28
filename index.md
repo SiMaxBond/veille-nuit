@@ -3,15 +3,15 @@ layout: default
 title: "Aujourd'hui"
 ---
 {% raw %}
-# Veille mondiale — jeudi 26 novembre 2026
+# Veille mondiale — samedi 28 novembre 2026
 
-*8 articles résumés, 6 événements, sur les 24 dernières heures.*
+*14 articles résumés, 10 événements, sur les 24 dernières heures.*
 
 ## En bref
 
-- La crise de Tongaat Hulett en Afrique du Sud menace les producteurs de sucre, la sécurité alimentaire et l’économie rurale.
-- Une alerte humanitaire a été lancée dans les camps de la bande de Gaza face à une ouraganisation et une tempête douce, risquant une catastrophe pour 1,76 million de personnes.
-- Le président turc Recep Tayyip Erdoğan a réorganisé les gouverneurs de 41 départements, dont 14 transférés à l’Intérieur, marquant une importante réorganisation administrative.
+- Les travailleurs des Postes du Paraíba au Brésil ont voté la grève et préparent une mobilisation nationale, accentuant l’instabilité politique.  
+- Le Banco de México a relevé sa prévision de croissance pour 2026 à 1,9 % malgré une faiblesse persistante de l’investissement liée aux incertitudes commerciales avec les États‑Unis.  
+- Au Royaume‑Uni, le ministre de la Défense a mobilisé 100 000 réservistes face à une menace russe perçue, tandis qu’une grève de 24 heures des conducteurs du métro de Londres perturbe les lignes principales.
 
 ## Zones d'agitation
 
@@ -19,39 +19,43 @@ Aucune situation de gravité 4 ou plus aujourd'hui.
 
 ## Secteurs sous pression
 
-- **Transport** : 5 événement(s) — Territoires palestiniens, Turquie, Libye, Mexique, Iran
-- **Construction** : 3 événement(s) — Territoires palestiniens, Turquie, Iran
-- **Finance** : 2 événement(s) — Afrique du Sud, Turquie
-- **Santé** : 2 événement(s) — Territoires palestiniens, Turquie
-- **Agriculture** : 1 événement(s) — Afrique du Sud
-- **Industrie** : 1 événement(s) — Iran
+- **Transport** : 7 événement(s) — France, Brésil, Royaume-Uni, Venezuela, Mexique
+- **Finance** : 3 événement(s) — Brésil, Mexique, France
+- **Industrie** : 2 événement(s) — Royaume-Uni, Mexique
+- **Agriculture** : 1 événement(s) — Mexique
 
 ## Tourisme
 
-- Aucun élément notable concernant le tourisme n’a été signalé aujourd’hui.
+- **Araçatuba (Brésil)** – La mairie mise sur le Festival du Hamburger pour attirer les visiteurs, mais le climat de contestation nationale risque de limiter la fréquentation.  
+- **Mexique** – La hausse de la prévision de croissance économique pourrait soutenir le tourisme, mais les risques d’incertitude commerciale et de volatilité financière freinent les investissements dans les infrastructures touristiques.  
+- **Royaume‑Uni** – La grève du métro de Londres et la mobilisation de réservistes créent des perturbations de transport qui pourraient décourager les visiteurs internationaux.
 
 ## Par région
 
-### Afrique
+### Amérique du Sud
 
-En Afrique du Sud, la crise de Tongaat Hulett fragilise les producteurs de sucre et menace les revenus de milliers de familles rurales, accentuant les risques pour la sécurité alimentaire et ralentissant la croissance économique locale. Cette détérioration du secteur agro‑alimentaire pourrait réduire les exportations de sucre, affecter les chaînes d’approvisionnement et décourager les investissements touristiques dans les zones rurales où l’agritourisme joue un rôle croissant. En Libye, la mort de deux soldats libyens, victimes de blessures subies lors d’une attaque ukrainienne contre des navires russes, souligne la persistance de tensions géopolitiques dans la région méditerranéenne. Ces incidents renforcent l’instabilité sécuritaire, ce qui peut dissuader les visiteurs et compliquer les flux commerciaux, impactant ainsi le secteur du tourisme et les échanges économiques du pays.
-
-### Moyen-Orient
-
-Dans les territoires palestiniens, une alerte humanitaire a été lancée face à la perspective d’une ouraganisation et d’une tempête douce qui menacent les 1,76 million de Palestiniens vivant dans les camps de la bande de Gaza, avec enfants, malades et personnes âgées particulièrement vulnérables ; le gouvernement palestinien a appelé à l’arrêt des attaques israéliennes, soulignant le risque d’une catastrophe humaine. En Turquie, le président Recep Tayyip Erdoğan a signé deux décrets modifiant les gouverneurs de 41 départements, dont 14 transférés à l’Intérieur, et a nommé un nouveau directeur à l’Académie de la Police, signe d’une réorganisation politique qui pourrait affecter la stabilité administrative. En Iran, les autorités ont menacé d’une réponse « destructrice » si des installations clés étaient attaquées, renforçant les tensions régionales. Ces développements aggravent l’insécurité, freinent les flux touristiques et pèsent sur les économies locales déjà fragilisées par les conflits et les incertitudes politiques.
+En Amérique du Sud, le Brésil connaît une escalade de tensions : les travailleurs des Postes du Paraíba ont voté la grève et préparent une mobilisation nationale, signe d’une instabilité politique qui pourrait perturber les services de communication et freiner les activités économiques. Cette même instabilité se reflète dans le secteur touristique, où la mairie d’Araçatuba mise sur le Festival du Hamburger pour attirer les visiteurs, mais le climat de contestation risque de limiter la fréquentation et les retombées financières attendues. Au Chili, des débats autour de Friedman, du Chili et de Pinochet alimentent également l’incertitude politique, sans précision supplémentaire, mais contribuent à un climat d’instabilité. Au Venezuela, la santé devient critique : des militaires en grève de faim en prison sont menacés de mort, ce qui accentue la crise humanitaire et renforce la perception d’un pays en difficulté, décourageant les investissements et le tourisme. L’ensemble de ces événements montre une aggravation des tensions politiques et sociales, avec des répercussions négatives sur l’économie régionale et le flux touristique.
 
 ### Amérique du Nord et centrale
 
-Dans la région d’Amérique du Nord et centrale, le Mexique connaît une escalade de l’instabilité politique, notée à un niveau de gravité 3, suite à la marche organisée le 25 novembre à Mexico contre la violence faite aux femmes. Cette mobilisation, largement médiatisée, révèle un climat de tension sociale qui pourrait se traduire par des perturbations des services publics et des déplacements, affectant la confiance des investisseurs et ralentissant les projets d’infrastructure. Le climat d’insécurité croissant risque également de décourager les touristes, notamment ceux attirés par les festivals culturels et les sites historiques de la capitale, entraînant une baisse des recettes du secteur hôtelier et de la restauration. Les autorités locales devront donc concilier sécurité et maintien de l’attractivité économique pour éviter une détérioration plus profonde du climat d’affaires et du tourisme.
+Le Banco de México a relevé sa prévision de croissance pour 2026, la portant à 1,9 % contre 1,5 % auparavant, tout en maintenant l’objectif de 2 % pour 2027. Cette hausse reflète une dynamique modérée du secteur privé, mais le rapport souligne une faiblesse persistante de l’investissement, alimentée par l’incertitude commerciale avec les États‑Unis et les révisions du T‑MEC. Les analystes du central bank pointent également plusieurs risques : tensions géopolitiques, volatilité des marchés financiers, ralentissement de la croissance américaine et phénomènes météorologiques extrêmes. Si la consommation intérieure continue de soutenir l’économie, la combinaison de ces facteurs pourrait freiner la reprise, affectant les recettes touristiques dépendantes d’un flux stable de visiteurs américains et la capacité du Mexique à attirer des investissements étrangers dans les infrastructures liées au tourisme.
+
+### Europe
+
+En Europe, la tension politique s’accentue simultanément en France, en Serbie et au Royaume‑Uni. En France, les agents du Greta de Pau ont publiquement soutenu la grève en République des Pyrénées, tandis que le débat du Conseil européen sur le budget pluriannuel 2028‑34 risque d’être retardé par les élections présidentielles, ce qui pourrait freiner les investissements publics. En Serbie, l’arrestation du propriétaire médiatique Dragan J. Vucicevic, accusé d’incitation à la haine et de diffusion de fausses informations, alimente l’instabilité autour du gouvernement de Vucic. Au Royaume‑Uni, le ministre de la Défense Wes Streeting a mobilisé 100 000 réservistes face à une menace russe perçue, et une grève de 24 heures des conducteurs du métro de Londres perturbe les lignes principales, avec d’autres arrêts prévus jusqu’en février. Ces crises politiques et sociales risquent de freiner le tourisme et d’impacter la confiance des investisseurs, ralentissant la reprise économique régionale.
 
 ## Principales sources
 
-- [Crisis de Tongaat Hulett Menace les Producteurs de Sucre et Desmillants Ruraux](https://news.google.com/rss/articles/CBMirAFBVV95cUxQNERIdDBKS1JxUlpfdVNkRy1sWHhTWlFtdlA0WHlFbzdIeW9tVDNhQW0zT2JYRDd6eGcta1I4WXZMM2lwTzdYdlpxYks0Z3d3eW04U09SWlctR0gxTmZmSDhCOWRpdU1ZV2JaN0VpVDF2ZU4zbjNEd0dOTzNxbTIzNWdoQXVrV0pScmVKQU15N2w3dUc2cVJsSXlRRE0zalktZVg5Ry1kdFhkSXVx?oc=5) — newsnote
-- [Alerte à la crise humanitaire en Cisjordanie](https://www.sozcu.com.tr/gazzede-176-milyon-filistinli-saganak-ve-soguk-tehdidi-altinda-p384142) — sozcu.com.tr
-- [41 départements ont changé de gouverneur, 14 ont été transférés à l'Ictère de l'Intérieur](https://www.trthaber.com/haber/gundem/41-ilin-valisi-degisti-14-vali-merkeze-cekildi-964375.html) — trthaber.com
-- [Deux soldats libyens meurent des blessures subies dans l'attaque ukrainienne sur des navires russes](https://news.google.com/rss/articles/CBMiWEFVX3lxTFA1V0VUTWRKd3B3b0VvUGIteWVPMDN1UXJSaklDLWVVT0hHbzRkVW5HMnc1czFFWVAtNmFZdTNwaHM4Nl9UZ200eUtHX2hQbFA2YVRQak5KUkg?oc=5) — Ahram Online
-- [Marche 25N au Mexique : horaires, itinéraire et clés de la mobilisation contre la violence à l'égard des femmes](https://news.google.com/rss/articles/CBMizgFBVV95cUxQUTNZS1M2X3hhb1ZMY3FOODlBdFJ3M1l4UGQ1ZXFuUF8zei15WTV4VnNIX2Z2dzN4bEw0WkVfQjM4WVJKOTk5X1hxelFad21ELTFydEpkbXl4THRUbEdSb2llS1Y1bzJPaWNsYVNyQWQ3MmxuTGZkTTBmU1NvRE1lQkZxMTRlUGZHUG5PMHhJYVBMVEw3Vm1qa0VuQnczVDVyZGF4M2JZcmh4emRxNDdLOW9QbXZhelBpem5qVVdIdmtMbXExUFByc0c2OVg3QdIB4gFBVV95cUxPSWFFTzZwQUNBRWVwOTJ0Q08yWnVhOTNOUkZISzVZSDY5aF9oS0xuU3F0ZmgtcEg4Mk0xZTBPWGFFb1kxSkU5c0lUdnZaYXo5NlZKdVF5Vk4wQlJpR0x1S3Y5V1lTclRXTGljbGxtU3N4T2NqRk8xcDJPRU9TNUxHZ1RzdUlFZ2lPeUlQOTEtMWFyaEo4OUljcFJFeWZ5ODhRSWIxemV3TFExSk1XRFBiM1Bpb3JaUHZBcVQxOTVHUGtNcms2TVNjSWhZaDI5U054SzVmWjdXZkdTWnZDRXRLRHBn?oc=5) — EL PAÍS
-- [Iran menace de réponse destructrice si des installations clés sont attaquées](https://news.google.com/rss/articles/CBMirAFBVV95cUxQSHJjM2R3V3E5b093TjAxWmZDQ2xTQTNOUG5VTEZPRkNzSVJkeUhhVFh2WjBHV240SVlpdFVacTJpV0x1b1ZzV1BRMHB0V2pJeklraHI5NkFBUHpFSUpQd3ZOd0RlbzV3RU1CdjhfTzNkMjh5eGtYWklWVUdaTVJfaHRGTFVGN2g4dTB3OTNHdlJ0SGtsZUU0WW9FSlpTc1dYMjdjUHhSNFVMVXls0gGsAUFVX3lxTFBIcmMzZHdXcTlvT3dOMDFaZkNDbFNBM05QblVMRk9GQ3NJUmR5SGFUWHZaMEdXbjRJWWl0VVpxMmlXTHVvVnNXUFEwcHRXakl6SWtocjk2QUFQekVJSlB3dk53RGVvNXdFTUJ2OF9PM2QyOHl4a1haSVZVR1pNUl9odEZMVUY3aDh1MHc5M0d2UnRIa2xlRTRZb0VKWlNzV1gyN2NQeFI0VUxVeWw?oc=5) — Africanews
+- [Les agents du Greta de Pau affichent leur soutien à la grève](https://news.google.com/rss/articles/CBMi0wFBVV95cUxOM1ljX1BreVJZejNwdkdkZUpGaTk0a084OFdJWWZhOTlvNVllTWVkTFFScXRXWkpleVFRWThaR2traEVSZEVybXVRcWRoeEFMQXdDTGFVWk1lSVRJS3RBSnZ3ZFZuTEduUW5kMjRxZl9WSXNGWWhPQUUwRjdGUk4wZndReVlXMlNaT2FrX080UXlnenIyejNYYjVLdDlXZ2xhQUpndHhQbmJWT1FyVzBYUjlsZXM3NlN6QXp5NkJTcFE1alNPMTFNOTM0emZhRURHc0dF?oc=5) — La République des Pyrénées
+- [Travailleurs des Postes au Paraïba ont approuvé un état de grève et préparent une mobilisation nationale](https://news.google.com/rss/articles/CBMi9gFBVV95cUxQdWFLWV92TGhnbEEyWk1LRG5aZmIyZU4tcWc4QVV4VWxDVW9XVVNROW5JX002TGdUTTh6VEh3eFIzdjYzVmxoWUd6UDJReFEzZ21BSU41UEFSOHBfMFQ0QmozTW5TQ2FiTWczY1ZmNjVqa2xNY29HRmVKNUNuMU1lNko0elh1dHpVYk5vaXgzZWRXNHRoVEhtYXJDQXg2eHZ6LXZHRjJoS3VJNVQ5QzVZSWpQQmdHS0hMSUt2S0FBSEpIaVRNaFJNQm5JeTFKUDJneFU3Zm8tNWx6MjNuM29vaDdOOHVIM2VnVldHaFdQY2h6UzVfQXc?oc=5) — Brasil de Fato
+- [Friedman, Chili et Pinochet](https://gda.com/detalle-de-la-noticia/?article=6241598) — gda.com
+- [Serbia : Pro - Vucic media owner Dragan J . Vucicevic arrested](https://www.dw.com/en/informer-tv-owner-vucicevic-arrested-has-the-reckoning-with-serbias-pro-vucic-media-machine-begun/a-80074650) — dw.com
+- [La menace russe fait peur, Londres alerte 100.000 réservistes : Tenet est prêt à la chiamée](https://gazzettadelsud.it/articoli/mondo/2026/11/26/la-minaccia-russa-fa-paura-londra-allerta-100-000-riservisti-tenetevi-pronti-alla-chiamata-95a62868-3250-4f2f-8da4-ba98342be8cf/) — gazzettadelsud.it
+- [Familiares dénoncent le risque de mort de militaires en grève de faim en prison en Venezuela](https://news.google.com/rss/articles/CBMiiAJBVV95cUxPVmIyZVduRVU2dlBVTXJ1YlRYV3FuVFQ3dXl0b25uSzdraDRnRDRRN18zLVA5OUhVSzJaZXpOWmQxSnNwZVZpNm85TzlMck9yV29uWU9ySmJlbkowOTlSbG9YVUQyMk5kY2JHNURMTWtWcGp1elBmVnZRVGozZ1ZJSEFYNnhpZi10VHFNdkJhV0ZSenl0Y3BDYkhWYmVKUEl3TkJNalctZHpXTzFiTk9XRDQ4MFNYOTduVEtnaGsyZE1mTnYyUkdENV9wbi16RUVtUnFEQ01JUC1xSVZFQi14YkxQQ3pnR0hYQnRNbzllLVRia1RMeG1JVm52cmJ2NnMxZFBNMnoyNlTSAZcCQVVfeXFMT0t1NFh0Qzg3T2FUSnVYU2tvaUdvUGJTZlNmWEtBWmV1b3BFV1JrNUNlS3Z2cVZaYWlaVHE0Zl84aWZJbUZXYWoxTEs4UmZ5ZmN1T3RQOG1qOHRFNlpSWmRxZUJ6UW4zbk1OdXNyQWJpcFlEaHA3Q2RiLWJUam9lRVZTbjhwVktvS2NRcmQ0RlF6bWZVdl9fVHg2QzBwWDhQSzBwQTBlRzFtY1RVcFI5dk5NMjF3Z29WeFpSY2IyVjBja0g0ZUZxX1lWbWloZi1ZNmhBeDBfbWY5TnNOcW54bXZPdkhkTWdNRVFZMUpBNFR6TklYZFZuM3RkN3JGWWdxZ1VuNXNhc25DdWlNQ2VLdmdtVUluNmY4?oc=5) — O GLOBO
+- [Banco de Mexico augmente son prévision de croissance économique de 2026 à 1,9%](https://www.notisistema.com/noticias/banxico-eleva-a-1-9-pronostico-de-crecimiento-para-mexico-en-2026/) — notisistema.com
+- [Turisme promeut pour la première fois le Festival du Hamburger d'Araçatuba](https://news.google.com/rss/articles/CBMiswFBVV95cUxQMDBad0RsemJFX2ZDcUdScUdZYmVLelkwS1dZcDRkSHBHNkc4UDRpTnVGdkh0VXUxQV9aZ01QbzB1b2hDWmEwZWltN1BWdzhsMFNQUDZWdjVhbWFqeGN6SGplTWRjWkJyeXVHWnU4TFBodEN4ejQtTXhYclBDM3M5VUxHRFNiWlhDN1MxS216YWNzdWF1SDFkYmx1RlZtQTNBZGJHd1ozWC1CN2pMM1Y2eHgxMA?oc=5) — Prefeitura Municipal de Araçatuba
+- [Consiglio européen : débat sur le budget pluriannuel 2028-34](https://www.adnkronos.com/internazionale/esteri/vertice-consiglio-europeo-bilancio-pluriennale-previsioni_2vMKPrYphLxeeMbGNEaWTx) — adnkronos.com
+- [Huelga de conducteurs du métro de Londres débute](https://www.hoytamaulipas.net/notas/634120/Estalla-huelga-de-conductores-del-Metro-de-Londres.html) — hoytamaulipas.net
 
 {% endraw %}
-[📱 Application mobile]({{ site.baseurl }}/app/) · [Données du jour au format JSON (pour une IA)]({{ site.baseurl }}/donnees/2026-11-26.json) · [Archives]({{ site.baseurl }}/archives/)
+[📱 Application mobile]({{ site.baseurl }}/app/) · [Données du jour au format JSON (pour une IA)]({{ site.baseurl }}/donnees/2026-11-28.json) · [Archives]({{ site.baseurl }}/archives/)
